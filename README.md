@@ -130,3 +130,7 @@ docker run  -d --name "$containerName" \
             openjdk:8 java -jar /app/your-app.jar
 
 ```
+
+## 关于备份问题
+1. 源码在Github上无需担心
+2. 数据库资源定期将docker容器打包成镜像，或者利用数据库连接工具导出数据
