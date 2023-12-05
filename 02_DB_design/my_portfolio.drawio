@@ -1,0 +1,21 @@
+<mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" background="none" math="0" shadow="0">
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <mxCell id="node1" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;my_counter  /* 编号，号码，id等规则生成器=前缀+数字 */&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id  /* id */: int&lt;br/&gt; name  /* 编号名称 */: varchar(16)&lt;br/&gt; prefix  /* 前缀 */: varchar(32)&lt;br/&gt; digit  /* 数字长度，数字位数 */: int&lt;br/&gt; curnum  /* 当前值 */: int&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-183" y="160" width="366" height="159" as="geometry" />
+    </mxCell>
+    <mxCell id="node2" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;my_images  /* 图文动态副表 */&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; master_id  /* 主表的唯一标识 */: varchar(255)&lt;br/&gt; name  /* 图片名 */: varchar(255)&lt;br/&gt; create_time  /* 创建时间 */: datetime&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="114" y="364" width="285" height="120" as="geometry" />
+    </mxCell>
+    <mxCell id="node0" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;my_imagetext  /* 图文动态主表 */&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id  /* 唯一标识 */: varchar(64)&lt;br/&gt; title  /* 标题 */: varchar(32)&lt;br/&gt; text  /* 文本内容 */: varchar(512)&lt;br/&gt; place  /* 地点 */: varchar(64)&lt;br/&gt; create_time  /* 时间 */: datetime&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-183" y="364" width="252" height="159" as="geometry" />
+    </mxCell>
+    <mxCell id="node4" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;my_message  /* 留言板 */&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id  /* 唯一标志 */: varchar(16)&lt;br/&gt; name  /* 昵称 */: varchar(32)&lt;br/&gt; name_color  /* 昵称颜色 */: varchar(16)&lt;br/&gt; name_effect  /* 昵称颜色深浅 */: varchar(16)&lt;br/&gt; text  /* 留言内容 */: varchar(64)&lt;br/&gt; status  /* 状态,0-fail,1-pass */: varchar(1)&lt;br/&gt; link  /* 友链地址,为空则非友链 */: varchar(256)&lt;br/&gt; create_time: datetime&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="-183" y="-116" width="282" height="231" as="geometry" />
+    </mxCell>
+    <mxCell id="node3" parent="1" vertex="1" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;my_portfolio  /* 个人作品集 */&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; title  /* 标题 */: varchar(64)&lt;br/&gt; file_url  /* 图片url */: varchar(128)&lt;br/&gt; tags  /* 标签 */: varchar(128)&lt;br/&gt; url  /* 链接url */: varchar(128)&lt;br/&gt; order_num  /* 排序 */: int&lt;/p&gt;&lt;hr size=&quot;1&quot;/&gt;&lt;p style=&quot;margin:0 0 0 4px;line-height:1.6;&quot;&gt; id: bigint&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=14;fontFamily=Helvetica;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeWidth=1;">
+      <mxGeometry x="144" y="-116" width="231" height="184" as="geometry" />
+    </mxCell>
+  </root>
+</mxGraphModel>
