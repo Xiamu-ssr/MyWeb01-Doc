@@ -51,6 +51,8 @@ yarn dev
 IDEA开箱即用
 
 ## 部署
+在/root下新建一个MyWeb01文件夹，用来存放本次项目所有docker脚本和映射资源
+
 1. 服务器启动依赖容器-Redis
 ```bash
 #!/bin/bash
@@ -63,6 +65,7 @@ docker run  -d --name "$containerName" \
             -p 6379:6379 \
             redis
 ```
+
 2. 服务器启动依赖容器-Mysql
 ```bash
 #!/bin/bash
@@ -76,7 +79,7 @@ docker run  -d --name "$containerName" \
             -e MYSQL_ROOT_PASSWORD=1009 \
             mysql:8
 ```
-   
+
 3. 本地修改前后端源码配置
 - 前端修改`vite.config.js`文件中的`server.proxy.'/dev-api'.target`为后端程序ip+port
 - 后端修改`application-druid.yml`中`spring.datasource.druid.master.url`中ip为同服务器的mysql的docker别名
@@ -89,3 +92,41 @@ docker run  -d --name "$containerName" \
 - 后端用IDEA执行`maven package`
 
 5. 部署前端
+将打包好的dist文件夹放到MyWeb01/Vue/dist
+两个conf文件见[./config/nginx](./config/nginx)
+```bash
+#!/bin/bash
+
+containerName="MyWeb01-Vue"
+nginxConf="/root/MyWeb01/Vue/nginx/nginx.conf"
+defaultConf="/root/MyWeb01/Vue/nginx/default.conf"
+logsPath="/root/MyWeb01/Vue/logs"
+vuePath="/root/MyWeb01/Vue/dist"
+
+docker run  -d --name "$containerName" \
+            -v "$nginxConf":/etc/nginx/nginx.conf \
+            -v "$defaultConf":/etc/nginx/conf.d/default.conf \
+            -v "$logsPath":/var/log/nginx \
+            -v "$vuePath":/usr/share/nginx/dist \
+            -p 80:80 \
+            nginx
+```
+
+6. 部署后端
+将打包好的jar包放入MyWeb01/SpringBoot/
+```bash
+#!/bin/bash
+
+containerName="MyWeb01-SpringBoot"
+SpringBootPath="/root/MyWeb01/SpringBoot/ruoyi-admin.jar"
+imagePath="/root/MyWeb01/SpringBoot/images/"
+
+docker run  -d --name "$containerName" \
+            -p 8080:8080 \
+            --link MyWeb01-MySQL:mysqldb \
+            --link MyWeb01-Redis:redisdb \
+            -v "$SpringBootPath":/app/your-app.jar \
+            -v "$imagePath":/app/images \
+            openjdk:8 java -jar /app/your-app.jar
+
+```
